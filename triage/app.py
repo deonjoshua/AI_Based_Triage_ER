@@ -41,26 +41,47 @@ def result():
 #################################################
 
 
-@app.route("/api/predict", methods=["POST"])
+@app.route('/api/predict', methods=['POST'])
 def predict():
     labels = ['Resuscitation: 2mins', 'Emergency: 10mins', 'Urgent: 30min', 'Semi-Urgent: 60mins', 'Non-Urgent: 120mins']
-    sex = int(request.form["Sex"])
-    age = int(request.form["Age"])
-    arrival_mode = int(request.form["Arrival mode"])
-    injury = int(request.form["Injury"])
-    mental = int(request.form["Mental"])
-    pain = int(request.form["Pain"])
-    nrs_pain = int(request.form["NRS_pain"])
-    sbp = float(request.form["SBP"])
-    dbp = float(request.form["DBP"])
-    hr = float(request.form["HR"])
-    rr = float(request.form["RR"])
-    bt = float(request.form["BT"])
-    saturation = float(request.form["Saturation"])
+    # Capture the inputs from the form
+    input_data = {
+        'Sex': [int(request.form['Sex'])],
+        'Age': [int(request.form['Age'])],
+        'Arrival mode': [int(request.form['Arrival mode'])],
+        'Injury': [int(request.form['Injury'])],
+        'Mental': [int(request.form['Mental'])],
+        'Pain': [int(request.form['Pain'])],
+        'NRS_pain': [int(request.form['NRS_pain'])],
+        'SBP': [float(request.form['SBP'])],
+        'DBP': [float(request.form['DBP'])],
+        'HR': [float(request.form['HR'])],
+        'RR': [float(request.form['RR'])],
+        'BT': [float(request.form['BT'])],
+        'Saturation': [float(request.form['Saturation'])]
+    }
+    # Convert to pandas DataFrame
+    input_df = pd.DataFrame.from_dict(input_data)
+    # Convert categorical variables into dummy variables
+    input_df = pd.get_dummies(input_df)
+    # Predict the label for the new data point
+    index = model.predict(input_df)[0]
+    return jsonify(f'Predicted Triage Category: {labels[index]}')
 
-    index = model.predict(X)[0]
 
-    return jsonify(f"Predicted Triage Category: {labels[index]}")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
