@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Triage!</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- D3 library -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron" style="text-align: center">
+            <h1>Triage Category Prediction</h1>
+            <br>
+            <form method="POST" action="/api/predict" role="form" , name="triageform">
+                <div class="form-group">
+                    <label for="sex">Sex</label>
+                    <input type="number" class="form-control" id="sex" name="Sex">
+                </div>
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" class="form-control" id="age" name="Age">
+                </div>
+                <div class="form-group">
+                    <label for="arrival-mode">Arrival Mode</label>
+                    <input type="number" class="form-control" id="arrival-mode" name="Arrival mode">
+                </div>
+                <div class="form-group">
+                    <label for="injury">Injury</label>
+                    <input type="number" class="form-control" id="injury" name="Injury">
+                </div>
+                <div class="form-group">
+                    <label for="mental">Mental</label>
+                    <input type="number" class="form-control" id="mental" name="Mental">
+                </div>
+                <div class="form-group">
+                    <label for="pain">Pain</label>
+                    <input type="number" class="form-control" id="pain" name="Pain">
+                </div>
+                <div class="form-group">
+                    <label for="nrs-pain">NRS Pain</label>
+                    <input type="number" class="form-control" id="nrs-pain" name="NRS_pain">
+                </div>
+                <div class="form-group">
+                    <label for="sbp">SBP</label>
+                    <input type="number" class="form-control" id="sbp" name="SBP">
+                </div>
+                <div class="form-group">
+                    <label for="dbp">DBP</label>
+                    <input type="number" class="form-control" id="dbp" name="DBP">
+                </div>
+                <div class="form-group">
+                    <label for="hr">HR</label>
+                    <input type="number" class="form-control" id="hr" name="HR">
+                </div>
+                <div class="form-group">
+                    <label for="rr">RR</label>
+                    <input type="number" class="form-control" id="rr" name="RR">
+                </div>
+                <div class="form-group">
+                    <label for="bt">BT</label>
+                    <input type="number" class="form-control" id="bt" name="BT">
+                </div>
+                <div class="form-group">
+                    <label for="saturation">Saturation</label>
+                    <input type="number" class="form-control" id="saturation" name="Saturation">
+                </div>
+                <input type="submit" value="submit" class="btn btn-default">
+            </form>
+
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+
+</html>

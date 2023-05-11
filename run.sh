@@ -1,0 +1,1 @@
+FLASK_APP=triage/app.py flask run
