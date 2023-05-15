@@ -1,83 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Triage!</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <!-- D3 library -->
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>AI Based Traige - ER</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
+<body id="myPage">
 
-<body>
-    <div class="container">
-        <div class="jumbotron" style="text-align: center">
-            <h1>Triage Category Prediction</h1>
-            <br>
-            <form method="POST" action="/api/predict" role="form" , name="triageform">
-                <div class="form-group">
-                    <label for="sex">Sex</label>
-                    <input type="number" class="form-control" id="sex" name="Sex">
-                </div>
-                <div class="form-group">
-                    <label for="age">Age</label>
-                    <input type="number" class="form-control" id="age" name="Age">
-                </div>
-                <div class="form-group">
-                    <label for="arrival-mode">Arrival Mode</label>
-                    <input type="number" class="form-control" id="arrival-mode" name="Arrival mode">
-                </div>
-                <div class="form-group">
-                    <label for="injury">Injury</label>
-                    <input type="number" class="form-control" id="injury" name="Injury">
-                </div>
-                <div class="form-group">
-                    <label for="mental">Mental</label>
-                    <input type="number" class="form-control" id="mental" name="Mental">
-                </div>
-                <div class="form-group">
-                    <label for="pain">Pain</label>
-                    <input type="number" class="form-control" id="pain" name="Pain">
-                </div>
-                <div class="form-group">
-                    <label for="nrs-pain">NRS Pain</label>
-                    <input type="number" class="form-control" id="nrs-pain" name="NRS_pain">
-                </div>
-                <div class="form-group">
-                    <label for="sbp">SBP</label>
-                    <input type="number" class="form-control" id="sbp" name="SBP">
-                </div>
-                <div class="form-group">
-                    <label for="dbp">DBP</label>
-                    <input type="number" class="form-control" id="dbp" name="DBP">
-                </div>
-                <div class="form-group">
-                    <label for="hr">HR</label>
-                    <input type="number" class="form-control" id="hr" name="HR">
-                </div>
-                <div class="form-group">
-                    <label for="rr">RR</label>
-                    <input type="number" class="form-control" id="rr" name="RR">
-                </div>
-                <div class="form-group">
-                    <label for="bt">BT</label>
-                    <input type="number" class="form-control" id="bt" name="BT">
-                </div>
-                <div class="form-group">
-                    <label for="saturation">Saturation</label>
-                    <input type="number" class="form-control" id="saturation" name="Saturation">
-                </div>
-                <input type="submit" value="submit" class="btn btn-default">
-            </form>
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-theme-d2 w3-left-align">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
+    <a href="http://127.0.0.1:5000/" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>Home</a>
+    <a href="http://127.0.0.1:5000/form" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Data Input</a>
 
-        </div>
-    </div>
+  
+  </div>
+  </div>
 
-    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+
+<!-- Image Header -->
+<div class="w3-display-container w3-animate-opacity">
+  <img src="https://images.pexels.com/photos/263402/pexels-photo-263402.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="boat" style="width:100%;min-height:350px;max-height:400px;">
+</div>
+
+<!-- Team Container -->
+<div class="w3-container w3-padding-64 w3-center" id="team">
+<h2>Meet the Project team</h2>
+<!-- <p>Meet the Project team</p> -->
+
+<div class="w3-row"><br>
+
+<div class="w3-quarter">
+  <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-long-hair_23-2149436197.jpg?w=740&t=st=1683360261~exp=1683360861~hmac=6c4faac9125b46ced8ffa5466e50e83f74cc90c02bf48bae6bda14deaece380a" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
+  <h3>Asal</h3>
+  <p>Backend</p>
+</div>
+
+<div class="w3-quarter">
+  <img src="https://img.freepik.com/free-psd/3d-illustration-person-with-sunglasses_23-2149436188.jpg?w=740&t=st=1683360201~exp=1683360801~hmac=9e484a8799f43ce9c292ffb5ab16e347130a92c63771cbb9426c2961e7c3bef7" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
+  <h3>Anush</h3>
+  <p>Front End</p>
+</div>
+
+<div class="w3-quarter">
+  <img src="https://img.freepik.com/free-psd/3d-illustration-person_23-2149436192.jpg?w=740&t=st=1683360775~exp=1683361375~hmac=d38c36318e879e6fc4d24a05d2699283ce220d7eb02da0089a768a361d04ed3f" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
+  <h3>Deon</h3>
+  <p>Backend</p>
+</div>
+
+<div class="w3-quarter">
+  <img src="https://img.freepik.com/free-psd/3d-illustration-bald-person-with-glasses_23-2149436184.jpg?w=740&t=st=1683360902~exp=1683361502~hmac=493c0460a3be66314d6f6c875038426a4123c0a10c26a65c075b8be47cb5e898" alt="Boss" style="width:45%" class="w3-circle w3-hover-opacity">
+  <h3>Dhiraj</h3>
+  <p>Front End</p>
+</div>
+
+</div>
+</div>
+
+<!-- Work Row -->
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="work">
+
+  <h1>Project Overview</h1>
+  <h4>The project aims to build a machine learning model that automates and enhances the triage process in emergency departments by accurately assessing patients’ urgency levels. The model will be trained on historical patient data, including demographics, presenting symptoms, vital signs, and clinical outcomes. Once developed, the system will be integrated into the hospital’s electronic health record system and evaluated for effectiveness.</h4>
+<!-- 
+
+
+
+
+Overview Row -->
+<div class="w3-container w3-padding-64 w3-theme-l5" id="work">
+
+  <div class="w3-half">
+  <h2>Data Visualisation Tools and Libraries</h2>
+  
+  <h3>
+  <img src="https://www.pngfind.com/pngs/m/62-626208_python-logo-png-transparent-background-python-logo-png.png" alt="Python" style="width:10%" class="w3-circle w3-hover-opacity" >
+  <img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/800px-JavaScript-logo.png" alt="Javascipt" style="width:10%" class="w3-circle w3-hover-opacity">
+  <img src = "https://www.kindpng.com/picc/m/188-1882416_flask-python-logo-hd-png-download.png" alt="Leaflet" style="width:15%" class="w3-circle w3-hover-opacity">
+  <img src = "https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg" alt="Leaflet" style="width:15%" class="w3-circle w3-hover-opacity">
+  
+  </h3>
+  
+  </div>
+
+  
+
+
+
+<script>
+// Script for side navigation
+function w3_open() {
+  var x = document.getElementById("mySidebar");
+  x.style.width = "300px";
+  x.style.paddingTop = "10%";
+  x.style.display = "block";
+}
+
+// Close side navigation
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+}
+
+// Used to toggle the menu on smaller screens when clicking on the menu button
+function openNav() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
+
 </body>
-
 </html>

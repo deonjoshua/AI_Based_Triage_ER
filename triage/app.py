@@ -1,10 +1,10 @@
 # import necessary libraries
 import os
 import pandas as pd
+from sklearn.preprocessing import StandardScaler
 from flask import (
     Flask,
     render_template,
-    jsonify,
     request
 )
 
@@ -12,7 +12,6 @@ from flask import (
 # Flask Setup
 #################################################
 app = Flask(__name__)
-
 
 #################################################
 # Model Setup
@@ -32,23 +31,23 @@ model = load(model_path)
 def home():
     return render_template("index.html")
 
-@app.route("/result")
-def result():
-    return render_template("result.html")
+@app.route("/form")
+def form():
+    return render_template("data_input.html")
+
 
 #################################################
 # API - Back End
 #################################################
 
-
 @app.route('/api/predict', methods=['POST'])
 def predict():
-    labels = ['Resuscitation: 2mins', 'Emergency: 10mins', 'Urgent: 30min', 'Semi-Urgent: 60mins', 'Non-Urgent: 120mins']
+    labels = ['Triage 1 - Resuscitation: 2mins', 'Triage 2 - Emergency: 10mins', 'Triage 3 - Urgent: 30min', 'Triage 4 - Semi-Urgent: 60mins', 'Triage 5 - Non-Urgent: 120mins']
     # Capture the inputs from the form
     input_data = {
         'Sex': [int(request.form['Sex'])],
         'Age': [int(request.form['Age'])],
-        'Arrival mode': [int(request.form['Arrival mode'])],
+        'Arrival mode': [str(request.form['Arrival mode'])],
         'Injury': [int(request.form['Injury'])],
         'Mental': [int(request.form['Mental'])],
         'Pain': [int(request.form['Pain'])],
@@ -60,29 +59,55 @@ def predict():
         'BT': [float(request.form['BT'])],
         'Saturation': [float(request.form['Saturation'])]
     }
+
+    if input_data['Arrival mode'] == '1':
+        input_data['Arrival mode_1'] = 1
+        input_data['Arrival mode_2'] = 0
+        input_data['Arrival mode_3'] = 0
+        input_data['Arrival mode_4'] = 0
+        input_data['Arrival mode_Other'] = 0
+
+    elif input_data['Arrival mode'] == '2':
+        input_data['Arrival mode_1'] = 0
+        input_data['Arrival mode_2'] = 1
+        input_data['Arrival mode_3'] = 0
+        input_data['Arrival mode_4'] = 0
+        input_data['Arrival mode_Other'] = 0
+
+    elif input_data['Arrival mode'] == '3':
+        input_data['Arrival mode_1'] = 0
+        input_data['Arrival mode_2'] = 0
+        input_data['Arrival mode_3'] = 1
+        input_data['Arrival mode_4'] = 0
+        input_data['Arrival mode_Other'] = 0
+
+    elif input_data['Arrival mode'] == '4':
+        input_data['Arrival mode_1'] = 0
+        input_data['Arrival mode_2'] = 0
+        input_data['Arrival mode_3'] = 0
+        input_data['Arrival mode_4'] = 1
+        input_data['Arrival mode_Other'] = 0
+
+    else:
+        input_data['Arrival mode_1'] = 0
+        input_data['Arrival mode_2'] = 0
+        input_data['Arrival mode_3'] = 0
+        input_data['Arrival mode_4'] = 0
+        input_data['Arrival mode_Other'] = 1
+
+
     # Convert to pandas DataFrame
     input_df = pd.DataFrame.from_dict(input_data)
-    # Convert categorical variables into dummy variables
-    input_df = pd.get_dummies(input_df)
+
+    input_df = input_df.drop(['Arrival mode'], axis=1)
+
+    scaler = StandardScaler()
+    input_df[['SBP', 'DBP', 'HR', 'RR', 'BT', 'Saturation','Age']] = scaler.fit_transform(input_df[['SBP', 'DBP', 'HR', 'RR', 'BT', 'Saturation','Age']])
+    
     # Predict the label for the new data point
     index = model.predict(input_df)[0]
-    return jsonify(f'Predicted Triage Category: {labels[index]}')
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    prediction = labels[index]
+    return render_template('result.html', prediction=prediction)
 
 if __name__ == "__main__":
 
