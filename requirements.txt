@@ -1,5 +1,7 @@
 flask
-flask-sqlalchemy
 pandas
+seaborn
+matplotlib
 scikit-learn
+mord
 joblib
