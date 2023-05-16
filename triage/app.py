@@ -106,7 +106,7 @@ def predict():
     
     # Predict the label for the new data point
     index = model.predict(input_df)[0]
-    prediction = labels[index]
+    prediction = labels[index-1]
     return render_template('result.html', prediction=prediction)
 
 if __name__ == "__main__":
