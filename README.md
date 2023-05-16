@@ -1,5 +1,8 @@
 # AI-Based Triage System for Emergency Departments
 
+![image](https://github.com/deonjoshua/AI_Based_Triage_ER/assets/117792685/483cf2cb-647d-4a8d-95f3-017fc7996fd5)
+
+
 This project aims to develop an AI-based triage system to aid healthcare professionals in emergency departments. The system uses machine learning algorithms to classify and prioritize patients based on the severity of their conditions.
 
 ## Project Overview
@@ -21,12 +24,17 @@ Our dataset includes vital signs, presenting symptoms, medical history, level of
 - Identifying categorical and numerical values
 - Scaling numerical values
 
+<img width="960" alt="image" src="https://github.com/deonjoshua/AI_Based_Triage_ER/assets/117792685/f42e2ce0-9c28-4de9-8d8f-b3c30ddbee3d">
+
 ## Machine Learning Models
 
 We use two primary models in this project:
 
-- K-Nearest Neighbors (KNN): A supervised learning model that classifies patients based on the similarity of their features to those of patients in the training dataset.
 - Random Forest: A supervised learning model that finds the hyperplane which best separates the different classes of patients.
+![Wiiner](https://github.com/deonjoshua/AI_Based_Triage_ER/assets/117792685/91049e1b-8210-47f5-b41b-258857cab514)
+
+- K-Nearest Neighbors (KNN): A supervised learning model that classifies patients based on the similarity of their features to those of patients in the training dataset.
+![Picture 1](https://github.com/deonjoshua/AI_Based_Triage_ER/assets/117792685/65108a11-fa27-492d-9b5e-5fae121c9342)
 
 ## Output
 
