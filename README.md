@@ -28,6 +28,11 @@ We use two primary models in this project:
 - K-Nearest Neighbors (KNN): A supervised learning model that classifies patients based on the similarity of their features to those of patients in the training dataset.
 - Random Forest: A supervised learning model that finds the hyperplane which best separates the different classes of patients.
 
+## Output
+
+<img width="1440" alt="Screenshot 2023-05-16 at 9 08 29 pm" src="https://github.com/deonjoshua/AI_Based_Triage_ER/assets/117792685/bbd8595b-010a-4a44-9f06-34107246f8dc">
+
+
 ## Running the Scripts
 
 - Create a new conda environment for this app with the following code:
