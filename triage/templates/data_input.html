@@ -47,7 +47,7 @@
       </div>
       <div class="row">
         <div class="column" style="background-color:#aaa;">    
-          <h1>Triage Category Prediction</h1>
+          <h1>Triage Form</h1>
           <br>
           <br>
           <form method="POST" action="/api/predict" , name="triageform">
@@ -159,7 +159,7 @@
               <br>
               <br>
               <div class="form-group">
-                  <label for="saturation"><h3>Saturation</h3></label>
+                  <label for="saturation"><h3>Oxygen Saturation</h3></label>
                   <br>
                   <input type="number" class="form-control" id="saturation" name="Saturation">
               </div>
@@ -172,11 +172,11 @@
           </div> 
           
           <div class="column" style="background-color:#bbb; text-align: center;">
-            <h1 style="margin-top: 10px;">Patients Anatomy</h1>
+            <h1 style="margin-top: 10px;">Injury Zone</h1>
                 <span id="tip-basic"></span>
               <div id="basic-wrapper" style="opacity: 0">
                   <div id="basic-basea">
-                        <svg id="svg-elements" version="1.1" xmlns="http://www.w3.org/2000/svg" width="400px" height="800" viewBox="0 0 640 1360" xml:space="preserve">
+                        <svg id="svg-elements" version="1.1" xmlns="http://www.w3.org/2000/svg" width="400px" height="800px" viewBox="0 0 640 1300" xml:space="preserve">
                               <image overflow="visible" width="640" height="1300" xlink:href="./static/images/unisexF.png"></image>        
                               <path id="basic_1" class="head" fill="#FF0000" stroke="#e47307" vector-effect="non-scaling-stroke" d="M320.837,186.442c18.023,0,31.313-10.149,40.574-21.811c0.106-0.87,0.194-1.727,0.254-2.578c2.393-5.448,4.557-14.769,4.328-18.038c-1.341-6.985,4.007-23.348,5.201-31.676c0.609-7.102,1.52-6.457,0-37.447c-1.391-28.415-27.27-42.043-44.906-44.111c-0.742-0.087-2.645-0.353-4.578-0.343c-2.232,0.012-4.472,0.307-4.472,0.307c-17.64,1.943-43.819,15.563-45.219,44.147c-1.518,30.991-0.608,30.346,0,37.447c1.314,8.161,6.088,25.191,5.201,31.676c-0.229,3.269,1.936,12.59,4.328,18.038c0.027,0.386,0.062,0.774,0.099,1.164C289.37,172.015,304.484,186.442,320.837,186.442z M277.221,144.015c-3.417,6.174-8.086,3.148-9.111-1.695c-1.024-4.842-4.13-11.732-5.149-22.88c-1.122-12.274,6.326-11.298,9.06-7.102C273.333,120.5,278.108,137.53,277.221,144.015z M371.194,112.339c2.735-4.197,10.183-5.172,9.062,7.102c-1.02,11.147-4.125,18.038-5.15,22.88c-1.025,4.842-5.694,7.869-9.112,1.695C364.652,137.03,370,120.667,371.194,112.339z"></path>
                               <path id="basic_2" class="neck" fill="#FF0000" stroke="#e47307" vector-effect="non-scaling-stroke" d="M266.685,241.972c8.068,4.268,16.904,7.401,25.315,8.028c18.974,1.416,17,13,28,13s9.001-11.93,30.333-11.666c12.615,0.156,22.538-2.672,30.415-7.429c7.563-4.567,13.233-10.917,17.594-18.108c-5.538-0.553-11.709-1.225-18.229-2.609c-8.331-1.768-21.411-5.02-22.067-18.038c-1.057-20.992,2.257-31.487,3.365-40.519c-9.262,11.663-22.552,21.811-40.574,21.811c-16.353,0-31.467-14.427-39.189-23.225c0.904,9.371,4.633,19.837,3.52,41.933c-0.655,13.017-13.736,16.27-22.065,18.038c-6.603,1.402-12.848,2.073-18.439,2.63C250.087,231.371,257.926,237.339,266.685,241.972z"></path>
@@ -206,7 +206,7 @@
                               <path id="basic_26" class="foot-rt" fill="#FF0000" stroke="#e47307" vector-effect="non-scaling-stroke" d="M222.098,1193.869c-3.24,6.158-2.891,10.218-8.488,16.466c-6.075,6.779-11.672,15.022-14.882,21.145c-1.938,3.695-8.166,17.703-6.797,21.983c0.512,1.6,2.797,2.552,3.557,2.229c0.607,1.453,2.429,2.824,3.871,2.501c0.076,1.855,2.734,6.374,7.214,5.003c1.063,2.421,7.061,6.376,11.161,2.019c1.594,3.47,4.956,6.115,10.26,4.6c4.012-1.146,7.846-4.455,10.175-7.442c1.097-1.406,3.14-4.663,5.341-6.52c2.202-1.856,6.984-7.102,7.896-17.109c0.911-10.007,5.733-17.594,6.492-20.337c0.518-1.871,0.684-3.666,1.602-5.08C251.428,1203.913,234.486,1194.787,222.098,1193.869z"></path>
                               <path id="basic_27" class="foot-lt" fill="#FF0000" stroke="#e47307" vector-effect="non-scaling-stroke" d="M382.956,1212.427c1.617,1.503,1.727,3.683,2.362,5.979c0.758,2.743,5.58,10.33,6.492,20.337c0.912,10.008,5.693,15.253,7.897,17.109c2.201,1.856,4.244,5.113,5.34,6.52c2.33,2.987,6.164,6.296,10.176,7.442c5.303,1.516,8.666-1.13,10.26-4.6c4.1,4.357,10.098,0.402,11.16-2.019c4.48,1.371,7.139-3.147,7.215-5.003c1.441,0.323,3.264-1.048,3.871-2.501c0.76,0.323,3.045-0.629,3.557-2.229c1.369-4.28-4.859-18.288-6.797-21.983c-3.211-6.122-8.807-14.365-14.883-21.145c-5.617-6.271-5.244-10.337-8.522-16.532C408.98,1194.028,391.662,1202.95,382.956,1212.427z"></path>
                         </svg>
-                        <svg id="svg-elements" version="1.1" xmlns="http://www.w3.org/2000/svg" width="400px" height="800" viewBox="20 0 640 1300" xml:space="preserve">
+                        <svg id="svg-elements" version="1.1" xmlns="http://www.w3.org/2000/svg" width="400px" height="800px" viewBox="0 0 640 1300" xml:space="preserve">
                             <image overflow="visible" width="640" height="1300" xlink:href="../static/images/unisexB.png"></image>
                             <path id="basic_28" class="head-back" fill="#FF0000" stroke="#e47307" vector-effect="non-scaling-stroke" d="M363.982,164.815c1.877-3.933,3.869-8.207,4.502-10.145c13.245-40.523,12.265-67.047,8.454-87.061c-5.142-27.012-22.793-39.597-46.53-42.708c-1.803-0.236-11.263-0.781-18.523,0.139c-23.227,2.943-40.359,15.979-45.42,42.569c-3.81,20.015-4.791,46.538,8.453,87.061c0.651,1.991,2.737,6.45,4.658,10.47C299.076,176.319,345.401,176.082,363.982,164.815z"></path>
                             <path id="basic_29" class="neck-back" fill="#FF0000" stroke="#e47307" vector-effect="non-scaling-stroke" d="M388.188,217.857c-19.33-4.688-32.611-13.145-28.026-44.898c0.052-0.356,1.874-4.067,3.82-8.144c-18.581,11.267-64.906,11.504-84.405,0.325c1.887,3.948,3.614,7.473,3.664,7.819c4.726,32.725-9.525,40.706-29.819,45.319C279.703,221.549,358.538,221.497,388.188,217.857z"></path>
@@ -238,7 +238,7 @@
                             <path id="basic_55" class="foot-bkrt" fill="#FF0000" stroke="#e47307" vector-effect="non-scaling-stroke" d="M389.563,1245.363c0.244,3.449,0.066,12.931-0.412,19.848c1.063-1.661,1.834-3.187,2.328-4.184c1.334-2.694,9.5-11.101,12.749-14.61c3.25-3.51,2.5-4.979,2.5-6.938s2-1.959,2.5-5.224s-1.834-4.733-2.916-5.469c-1.084-0.734-4.084-0.734-4.249-1.387c-0.166-0.654-1.25-1.879-3.168-2.857c-1.916-0.979-4,0.652-4.916-1.062c-0.819-1.53-2.498-2.153-3.917-3.431C388.149,1228.477,388.857,1235.374,389.563,1245.363z"></path>
                             <path id="basic_56" class="foot-bklt" fill="#FF0000" stroke="#e47307" vector-effect="non-scaling-stroke" d="M253.573,1245.363c0.701-9.914,1.407-16.78-0.453-25.12c-1.368,1.15-2.919,1.786-3.695,3.237c-0.917,1.714-3,0.082-4.917,1.062c-1.917,0.979-3.001,2.203-3.167,2.857c-0.166,0.652-3.167,0.652-4.25,1.387c-1.083,0.735-3.416,2.204-2.916,5.469s2.5,3.265,2.5,5.224s-0.751,3.429,2.499,6.938s11.416,11.916,12.75,14.61c0.446,0.899,1.12,2.23,2.028,3.701C253.498,1257.86,253.334,1248.732,253.573,1245.363z"></path> -->
                         </svg>
-                    </div>
+                    
                     
                 </div>
                 
@@ -247,17 +247,34 @@
               
             </div>
           </div>
-          <script src="{{ url_for('static', filename='js/app.js') }}"></script>
-
-      <!-- <div class="tooltip">???
-        <span class="tooltiptext">1 = Famale, 2 = Male</span>
-      </div> -->
-
-      <!-- <script>
-        function myFunction() {document.getElementById("demo").innerHTML = "Hello World";}
-      </script>
-
-      <p id="demo"></p> -->
+          <script>
+            // Get all SVG path elements
+            let svgPaths = document.querySelectorAll("svg path");
+          
+            // Add event listener to all SVG paths
+            svgPaths.forEach((path) => {
+              path.addEventListener("click", function() {
+                // Toggle opacity
+                if (this.style.opacity == "" || this.style.opacity == "0") {
+                  this.style.opacity = "1";
+                } else {
+                  this.style.opacity = "0";
+                }
+                
+                // Store selected paths
+                let selectedPaths = [];
+                svgPaths.forEach((path) => {
+                  if (path.style.opacity == "1") {
+                    selectedPaths.push(path.id);
+                  }
+                });
+                
+                // Store in local storage
+                localStorage.setItem('selectedPaths', JSON.stringify(selectedPaths));
+                console.log(localStorage.getItem('selectedPaths'));
+              });
+            });
+          </script>
 
     </body>
   </html>
